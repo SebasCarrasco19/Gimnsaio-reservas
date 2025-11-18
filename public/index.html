@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Reservas del Gimnasio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏋️ Sistema de Reservas del Gimnasio</h1>
+
+    <!-- ========= LOGIN / REGISTRO ========= -->
+    <section id="authSection">
+      <div class="card">
+        <h2>Iniciar Sesión</h2>
+        <input id="loginEmail" type="email" placeholder="Email" />
+        <input id="loginPassword" type="password" placeholder="Contraseña" />
+        <button id="btnLogin">Ingresar</button>
+        <p id="loginMsg" class="msg"></p>
+      </div>
+
+      <div class="card">
+        <h2>Registrarse (Alumno)</h2>
+        <input id="regNombre" type="text" placeholder="Nombre" />
+        <input id="regEmail" type="email" placeholder="Email" />
+        <input id="regPassword" type="password" placeholder="Contraseña" />
+        <button id="btnRegister">Crear cuenta</button>
+        <p id="regMsg" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- ========= PANEL PROFESOR ========= -->
+    <section id="profPanel" class="hidden">
+      <div class="card">
+        <h2 id="profTitulo">Bienvenido, Profesor</h2>
+        <button id="btnProfVerHorarios">Ver / Gestionar mis horarios</button>
+        <button id="btnProfCerrarSesion" class="btn-secondary">Cerrar sesión</button>
+      </div>
+
+      <div id="profHorariosSection" class="card hidden">
+        <h3>Crear nuevo horario de clase</h3>
+        <div class="form-grid">
+          <input id="profNombreClase" type="text" placeholder="Nombre de la clase (ej: Pilates)" />
+          <input id="profDescripcionClase" type="text" placeholder="Descripción (opcional)" />
+          <input id="profFecha" type="date" />
+          <input id="profHoraInicio" type="time" />
+          <input id="profHoraFin" type="time" />
+          <input id="profCupos" type="number" min="1" placeholder="Cupos" />
+        </div>
+        <button id="btnCrearHorario">Crear horario</button>
+        <p id="profMsg" class="msg"></p>
+
+        <hr />
+        <h3>Mis horarios creados</h3>
+        <div id="listaHorariosAdmin"></div>
+      </div>
+    </section>
+
+    <!-- ========= PANEL ALUMNO ========= -->
+    <section id="alumnoPanel" class="hidden">
+      <div class="card">
+        <h2 id="alumnoTitulo">Bienvenido</h2>
+        <button id="btnVerClases">Ver clases disponibles</button>
+        <button id="btnMisReservas">Mis reservas</button>
+        <button id="btnAlumnoCerrarSesion" class="btn-secondary">Cerrar sesión</button>
+      </div>
+
+      <!-- Lista de horarios / clases -->
+      <div id="clasesSection" class="card hidden">
+        <h3>Clases disponibles</h3>
+        <div id="listaHorarios"></div>
+        <p id="clasesMsg" class="msg"></p>
+      </div>
+
+      <!-- Reservas del alumno -->
+      <div id="misReservasSection" class="card hidden">
+        <h3>Mis reservas</h3>
+        <div id="listaReservas"></div>
+        <p id="reservasMsg" class="msg"></p>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
